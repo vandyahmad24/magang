@@ -64,9 +64,9 @@
           @if (Auth::user()->level=='magang')
           <ul>
             <li><a class="nav-link" href="{{route('home')}}">Akun</a></li>
-            <li><a class="nav-link" href="{{route('user.validasi')}}">Validasi</a></li>
+            <li><a class="nav-link" href="{{route('user.validasi')}}">Status</a></li>
+            <li><a class="nav-link " href="{{route('user.pengumuman-after')}}">Surat Balasan</a></li>
             <li><a class="nav-link" href="{{route('user.absensi')}}">Absensi</a></li>
-            <li><a class="nav-link " href="{{route('user.pengumuman-after')}}">Pengumuman</a></li>
             <li><a class="nav-link" href="{{route('user.hasilmagang')}}">Hasil Magang</a></li>
             <li>
             <a class="nav-link"  href="{{ route('logout') }}"
@@ -86,8 +86,8 @@
             <li><a class="nav-link" href="{{route('awal')}}">Beranda</a></li>
             <li><a class="nav-link" href="{{route('profil')}}">Profil</a></li>
             <li><a class="nav-link" href="{{route('pendaftar')}}">Pendaftar</a></li>
-            <li><a class="nav-link " href="{{route('pengumuman')}}">Pengumuman</a></li>
-            <li><a class="nav-link" href="#contact">Informasi</a></li>
+            {{-- <li><a class="nav-link " href="{{route('pengumuman')}}">Pengumuman</a></li> --}}
+            <li><a class="nav-link" href="{{route('informasi')}}">Informasi</a></li>
             <li><a class="nav-link" href="{{route('admin')}}">Dashboard</a></li>
           </ul>
           @endif
@@ -96,8 +96,8 @@
           <li><a class="nav-link" href="{{route('awal')}}">Beranda</a></li>
           <li><a class="nav-link" href="{{route('profil')}}">Profil</a></li>
           <li><a class="nav-link" href="{{route('pendaftar')}}">Pendaftar</a></li>
-          <li><a class="nav-link " href="{{route('pengumuman')}}">Pengumuman</a></li>
-          <li><a class="nav-link" href="#contact">Informasi</a></li>
+          {{-- <li><a class="nav-link " href="{{route('pengumuman')}}">Pengumuman</a></li> --}}
+          <li><a class="nav-link" href="{{route('informasi')}}">Informasi</a></li>
           <li><a class="nav-link" href="{{route('login')}}">Login</a></li>
           <li><a class="nav-link" href="{{route('register')}}">Sign Up</a></li>
         </ul>

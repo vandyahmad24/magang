@@ -33,7 +33,6 @@
                         <td>NIM</td>
                         <td>Nama Peserta</td>
                         <td>Universitas</td>
-                        <td>Verifikasi</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,13 +43,7 @@
                         <td>{{$u->nim}}</td>
                         <td>{{$u->name}}</td>
                         <td>{{$u->universitas}}</td>
-                        <td>
-                            @if (isset($u->document))
-                                Sudah
-                            @else
-                                Belum
-                            @endif
-                        </td>
+                       
                     </tr>
                     @endforeach
                    

@@ -50,9 +50,9 @@
                             <small>Tipe : PDF</small>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Upload Foto Diri</label>
+                            <label for="" class="form-label">Upload Surat Balasan</label>
                             <input type="file" class="form-control" id="" name="foto_diri" required>
-                            <small>Tipe : JPG/PNG</small>
+                            <small>Tipe : PDF</small>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Upload KTM</label>

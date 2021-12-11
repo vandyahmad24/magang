@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Absensi;
 use App\Models\ProfileUpload;
 use App\Models\ProfileUser;
@@ -22,6 +22,18 @@ class AdminController extends Controller
         $user = User::where('level','magang')->where('status_magang','tolak')->latest()->get();
         return view('admin.tolak',compact('user'));
     }
+    public function konfirmasi()
+    {
+        $user = User::where('level','magang')->where('status_magang','setuju')->where('is_confirmation','0')->latest()->get();
+        return view('admin.konfirmasi',compact('user'));
+    }
+    public function konfirmasiStatus($id)
+    {
+       $user = User::find($id);
+       $user->is_confirmation=1;
+       $user->save();
+       return redirect('daftar_pelamar_konfirmasi');
+    }
     public function detailPelamar($id)
     {
         $user =User::find($id);
@@ -29,6 +41,12 @@ class AdminController extends Controller
         $upload = ProfileUpload::where('user_id',$id)->first();
         return view('admin.pelamar_detail',compact('user','profile','upload'));
         // dd($user);
+    }
+    public function deletePeserta($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/admin/rekap-perbulan');
     }
     public function changeStatusPelamar($id, $status)
     {
@@ -84,5 +102,24 @@ class AdminController extends Controller
         $user = User::where('level','magang')->whereBetween('created_at', [$start, $end])->latest()->get();
         // dd($user);
         return view('admin.rekap_awal', compact('start','end','user'));
+    }
+    public function cetakRekapPerbulan($tanggal_awal, $tanggal_akhir)
+    {
+        $user = User::where('level','magang')->whereBetween('created_at', [$tanggal_awal, $tanggal_akhir])->latest()->get();
+        $pdf = PDF::loadview('surat.rekap',compact('user','tanggal_awal','tanggal_akhir'));
+        return $pdf->stream('rekap.pdf');
+    }
+    public function editPeserta($id)
+    {
+        $user = User::find($id);
+        $profile = ProfileUser::where('user_id',$id)->first();
+        if($profile!=null){
+            $upload = ProfileUpload::where('user_id',$id)->first();
+            return view('admin.edit_peserta', compact('user','profile','upload'));
+        }else{
+            return view('admin.edit_belum_komplit', compact('user','profile'));
+        }
+        // dd($profile);
+        
     }
 }

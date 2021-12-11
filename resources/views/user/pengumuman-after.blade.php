@@ -26,10 +26,12 @@
             <div class="row">
                 <div class="container mt-5">
                     @if (Auth::user()->status_magang=="setuju")
-                    Cetak Surat Balasan <a href="{{route('user.cetakhasilmagang',Auth::user()->id)}}">Cetak</a>
+                    Cetak Surat Balasan <a href="{{route('user.cetakpengumuman',Auth::user()->id)}}">Cetak</a>
                     <br>
                         @if (Auth::user()->is_selesai==1)
                         Cetak Surat Selesai Magang <a href="{{route('user.cetakSelesaiMagang',Auth::user()->id)}}">Cetak</a>
+                        <br>
+                        Cetak Sertifikat Magang <a href="{{route('user.cetakhasilmagang',Auth::user()->id)}}">Cetak</a>
                         @endif
                     @elseif (Auth::user()->status_magang=="pendaftaran")
                     Mohon Maaf Silahkan Tunggu Konfirmasi Dari Admin

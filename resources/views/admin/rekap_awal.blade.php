@@ -22,6 +22,9 @@
                             <input type="date" value="{{$end}}" class="form-control" name="tanggal_akhir" >
                           </div>
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        <a href="{{route('cetak-rekap',['tanggal_awal'=>$start,'tanggal_akhir'=>$end])}}" class="btn btn-warning mt-3">Cetak</a>
+                       
+
                       </form>
                 </div>
             </div>
@@ -41,7 +44,9 @@
                                     <th>NIM</th>
                                     <th>Tanggal Daftar</th>
                                     <th>Status</th>
+                                    <th>Aksi</th>
                                 </tr>
+
                             </thead>
                             <tbody>
                                 @foreach ($user as $u)
@@ -52,7 +57,23 @@
                                         <td>{{$u->universitas}}</td>
                                         <td>{{$u->nim}}</td>
                                         <td>{{date('d-m-Y',strtotime($u->created_at))}}</td>
-                                        <td>{{$u->status_magang}}</td>
+                                        <td>
+                                            @if ($u->status_magang=='pendaftaran')
+                                               Belum Mengisi Formulir
+                                            @elseif ($u->status_magang=='pengajuan')
+                                                Butuh Konfirmasi
+                                            @elseif ($u->status_magang=='setuju')
+                                                Diterima
+                                            @elseif ($u->status_magang=='tolak')
+                                                Ditolak
+                                            @else
+
+                                            @endif
+                                           </td>
+                                        <td>
+                                            {{-- <a href="{{route('admin.edit-perserta',$u->id)}}" class="btn btn-success">Edit</a> --}}
+                                            <a href="{{route('admin.delete-perserta',$u->id)}}" class="btn btn-danger">Hapus</a>
+                                        </td>
                                       
                                     </tr>
                                 @endforeach

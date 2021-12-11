@@ -73,7 +73,7 @@ class UserController extends Controller
         $this->validate($request, [
             'surat_magang' => 'mimes:pdf|required|max:10000',
 			'kesbangkol' => 'mimes:pdf|required|max:10000',
-            'foto_diri' => 'mimes:jpg,jpeg,png|required|max:10000',
+            'foto_diri' => 'mimes:pdf|required|max:10000',
             'ktm' => 'mimes:jpg,jpeg,png|required|max:10000',
 		]);
 
@@ -122,7 +122,7 @@ class UserController extends Controller
         $this->validate($request, [
             'surat_magang' => 'mimes:pdf|max:10000',
 			'kesbangkol' => 'mimes:pdf|max:10000',
-            'foto_diri' => 'mimes:jpg,jpeg,png|max:10000',
+            'foto_diri' => 'mimes:pdf|max:10000',
             'ktm' => 'mimes:jpg,jpeg,png|max:10000',
 		]);
         $upload = ProfileUpload::find($id);
@@ -173,7 +173,7 @@ class UserController extends Controller
     public function absensi()
     {
 
-        if(Auth::user()->status_magang=="setuju"){
+        if(Auth::user()->status_magang=="setuju" && Auth::user()->is_confirmation==1){
             $a = Absensi::whereDate('created_at', Carbon::today())
                             ->where('user_id',Auth::user()->id)
                             ->first();

@@ -10,11 +10,17 @@
                 {{-- <a class="nav-link" href="{{route('master')}}">
                     Data Master
                 </a> --}}
+                <a class="nav-link" href="{{route('admin.rekap-perbulan')}}">
+                    Rekap Magang
+                </a>
                 <a class="nav-link" href="{{route('admin.pelamar')}}">
                     Daftar Pelamar
                 </a>
                 <a class="nav-link" href="{{route('admin.tolak')}}">
                     Daftar Ditolak
+                </a>
+                <a class="nav-link" href="{{route('admin.konfirmasi')}}">
+                    Daftar Konfirmasi
                 </a>
                 <a class="nav-link" href="{{route('admin.absensi')}}">
                     Daftar Absensi
@@ -22,9 +28,7 @@
                 <a class="nav-link" href="{{route('admin.penilaian')}}">
                     Daftar Penilaian
                 </a>
-                <a class="nav-link" href="{{route('admin.rekap-perbulan')}}">
-                    Rekap Magang
-                </a>
+              
                
                
             </div>

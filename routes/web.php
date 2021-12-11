@@ -30,6 +30,7 @@ Route::get('/profil', function () {
 })->name('profil');
 Route::get('/pendaftar',[FrontController::class, 'pendaftar'])->name('pendaftar');
 Route::get('/pengumuman',[FrontController::class, 'pengumuman'])->name('pengumuman');
+Route::get('/informasi',[FrontController::class, 'informasi'])->name('informasi');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -63,10 +64,19 @@ Route::get('/admin_dashboard', function () {
 
 Route::get('/daftar_pelamar',[AdminController::class, 'pelamar'])->name('admin.pelamar');
 Route::get('/daftar_pelamar_tolak',[AdminController::class, 'tolak'])->name('admin.tolak');
+Route::get('/daftar_pelamar_konfirmasi',[AdminController::class, 'konfirmasi'])->name('admin.konfirmasi');
+Route::get('/daftar_pelamar_konfirmasi/{id}',[AdminController::class, 'konfirmasiStatus'])->name('admin.konfirmasi_status');
 Route::get('/daftar_pelamar/{id}',[AdminController::class, 'detailPelamar'])->name('admin.detail_pelamar');
 Route::get('/change_status/{id}/{status}',[AdminController::class, 'changeStatusPelamar'])->name('admin.change.pelamar');
 Route::get('/daftar_penilaian',[AdminController::class, 'penilaian'])->name('admin.penilaian');
 Route::get('/daftar_penilaian/{id}',[AdminController::class, 'penilaianDetail'])->name('admin.detailpenilaian');
 Route::post('/daftar_penilaian/{id}',[AdminController::class, 'penilaianPost'])->name('admin.penilaian.post');
 Route::get('/absensi',[AdminController::class, 'absensi'])->name('admin.absensi');
+// 
+Route::get('/delete-peserta/{id}',[AdminController::class, 'deletePeserta'])->name('admin.delete-perserta');
 Route::get('/admin/rekap-perbulan',[AdminController::class, 'rekapPerbulan'])->name('admin.rekap-perbulan');
+Route::get('/cetak/rekap-perbulan/{tanggal_awal}/{tanggal_akhir}',[AdminController::class, 'cetakRekapPerbulan'])->name('cetak-rekap');
+
+
+Route::get('/admin/edit-peserta/{id}',[AdminController::class, 'editPeserta'])->name('admin.edit-perserta');
+

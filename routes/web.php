@@ -38,13 +38,15 @@ Route::post('/formulir/{id}',[UserController::class, 'formulirPost'])->name('use
 Route::get('/formulir/{id}',[UserController::class, 'formulirUpdate'])->name('user.formulir.update');
 Route::put('/formulir/{id}',[UserController::class, 'formulirPut'])->name('user.formulir.put');
 Route::get('/cetak/pendaftaran',[PrintController::class, 'pendaftaran'])->name('cetak.pendaftaran');
-
+Route::get('/pengumuman-after',[UserController::class, 'pengumuman'])->name('user.pengumuman-after');
 
 Route::get('/berkas',[UserController::class, 'berkas'])->name('user.berkas');
 Route::post('/berkas',[UserController::class, 'berkasPost'])->name('user.berkas.post');
 Route::get('/berkas/{id}',[UserController::class, 'berkasUpdate'])->name('user.berkas.update');
 Route::post('/berkas/{id}',[UserController::class, 'berkasPut'])->name('user.berkas.put');
 Route::get('/cetak-pengumuman/{id}',[PrintController::class, 'cetakHasilPengumuman'])->name('user.cetakpengumuman');
+Route::get('/cetak-tolak/{id}',[PrintController::class, 'cetakTolak'])->name('user.tolak');
+Route::get('/cetak-selesai/{id}',[PrintController::class, 'cetakSelesaiMagang'])->name('user.cetakSelesaiMagang');
 
 
 
@@ -67,3 +69,4 @@ Route::get('/daftar_penilaian',[AdminController::class, 'penilaian'])->name('adm
 Route::get('/daftar_penilaian/{id}',[AdminController::class, 'penilaianDetail'])->name('admin.detailpenilaian');
 Route::post('/daftar_penilaian/{id}',[AdminController::class, 'penilaianPost'])->name('admin.penilaian.post');
 Route::get('/absensi',[AdminController::class, 'absensi'])->name('admin.absensi');
+Route::get('/admin/rekap-perbulan',[AdminController::class, 'rekapPerbulan'])->name('admin.rekap-perbulan');

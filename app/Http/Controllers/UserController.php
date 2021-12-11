@@ -202,5 +202,9 @@ class UserController extends Controller
         return view('user.pengumuman',compact('user'));
         
     }
+    public function pengumuman()
+    {
+        return view('user.pengumuman-after');
+    }
   
 }

@@ -35,7 +35,21 @@ class PrintController extends Controller
         $user = User::find($id);
         $profile = ProfileUser::where('user_id',$user->id)->first();
         $pdf = PDF::loadview('surat.penerimaan',compact('user','profile'));
-         return $pdf->stream('dokumen penerimaan.pdf');
+        return $pdf->stream('dokumen penerimaan.pdf');
+    }
+    public function cetakTolak($id)
+    {
+        $user = User::find($id);
+        $profile = ProfileUser::where('user_id',$user->id)->first();
+        $pdf = PDF::loadview('surat.penolakan',compact('user','profile'));
+        return $pdf->stream('dokumen penolakan.pdf');
+    }
+    public function cetakSelesaiMagang($id)
+    {
+        $user = User::find($id);
+        $profile = ProfileUser::where('user_id',$user->id)->first();
+        $pdf = PDF::loadview('surat.selesai_magang',compact('user','profile'));
+        return $pdf->stream('dokumen selesai magang.pdf');
     }
   
 

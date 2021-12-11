@@ -6,6 +6,7 @@ use App\Models\Absensi;
 use App\Models\ProfileUpload;
 use App\Models\ProfileUser;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -61,5 +62,27 @@ class AdminController extends Controller
         $absensi = Absensi::with('user')->latest()->get();
         return view('admin.absensi',compact('absensi'));
         // dd($absensi);
+    }
+    public function rekapPerbulan(Request $request)
+    {
+        
+        $now = date('m/d/Y');
+        // dd($now);
+        $start = Carbon::createFromFormat('m/d/Y', $now)
+                        ->firstOfMonth()
+                        ->format('Y-m-d');
+        $end = Carbon::createFromFormat('m/d/Y', $now)
+                        ->lastOfMonth()
+                        ->format('Y-m-d');
+        if ($request->has('tanggal_awal')) {
+            $start = $request->tanggal_awal;
+        }
+        if ($request->has('tanggal_akhir')) {
+            $end = $request->tanggal_akhir;
+        }
+        // dd($end);
+        $user = User::where('level','magang')->whereBetween('created_at', [$start, $end])->latest()->get();
+        // dd($user);
+        return view('admin.rekap_awal', compact('start','end','user'));
     }
 }

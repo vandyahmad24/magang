@@ -66,7 +66,7 @@
             <li><a class="nav-link" href="{{route('home')}}">Akun</a></li>
             <li><a class="nav-link" href="{{route('user.validasi')}}">Validasi</a></li>
             <li><a class="nav-link" href="{{route('user.absensi')}}">Absensi</a></li>
-            <li><a class="nav-link " href="{{route('pengumuman')}}">Pengumuman</a></li>
+            <li><a class="nav-link " href="{{route('user.pengumuman-after')}}">Pengumuman</a></li>
             <li><a class="nav-link" href="{{route('user.hasilmagang')}}">Hasil Magang</a></li>
             <li>
             <a class="nav-link"  href="{{ route('logout') }}"

@@ -22,6 +22,9 @@
                 <a class="nav-link" href="{{route('admin.penilaian')}}">
                     Daftar Penilaian
                 </a>
+                <a class="nav-link" href="{{route('admin.rekap-perbulan')}}">
+                    Rekap Magang
+                </a>
                
                
             </div>

@@ -73,7 +73,7 @@ class UserController extends Controller
         $this->validate($request, [
             'surat_magang' => 'mimes:pdf|required|max:10000',
 			'kesbangkol' => 'mimes:pdf|required|max:10000',
-            'foto_diri' => 'mimes:pdf|required|max:10000',
+            // 'foto_diri' => 'mimes:pdf|required|max:10000',
             'ktm' => 'mimes:jpg,jpeg,png|required|max:10000',
 		]);
 
@@ -101,11 +101,12 @@ class UserController extends Controller
         $ktm->move($tujuan_upload,$ktm_nama);
         $pu->ktm = $ktm_nama;
 
-        $foto_diri = $request->file('foto_diri');
-        $foto_diri_nama = "foto_diri".time()."_".$foto_diri->getClientOriginalName();
-        $tujuan_upload = 'uploads';
-        $foto_diri->move($tujuan_upload,$foto_diri_nama);
-        $pu->foto_diri = $foto_diri_nama;
+        // $foto_diri = $request->file('foto_diri');
+        // $foto_diri_nama = "foto_diri".time()."_".$foto_diri->getClientOriginalName();
+        // $tujuan_upload = 'uploads';
+        // $foto_diri->move($tujuan_upload,$foto_diri_nama);
+        // $pu->foto_diri = $foto_diri_nama;
+        $pu->foto_diri="null";
        
         $pu->save();
 
@@ -122,7 +123,7 @@ class UserController extends Controller
         $this->validate($request, [
             'surat_magang' => 'mimes:pdf|max:10000',
 			'kesbangkol' => 'mimes:pdf|max:10000',
-            'foto_diri' => 'mimes:pdf|max:10000',
+            // 'foto_diri' => 'mimes:pdf|max:10000',
             'ktm' => 'mimes:jpg,jpeg,png|max:10000',
 		]);
         $upload = ProfileUpload::find($id);
@@ -143,13 +144,7 @@ class UserController extends Controller
             $upload->kesbangkol = $kesbangkol_nama;
         }
 
-        if($request->file('foto_diri')){
-            $foto_diri = $request->file('foto_diri');
-            $foto_diri_nama = "foto_diri".time()."_".$foto_diri->getClientOriginalName();
-            $tujuan_upload = 'uploads';
-            $foto_diri->move($tujuan_upload,$foto_diri_nama);
-            $upload->foto_diri = $foto_diri_nama;
-        }
+   
 
         if($request->file('ktm')){
             $ktm = $request->file('ktm');

@@ -22,7 +22,7 @@
     <section class="inner-page">
         <div class="container">
             <center>
-                <h4>Upload Berkasi</h4>
+                <h4>Upload Berkas</h4>
                 <h5>Magang</h5>
             </center>
         </div>

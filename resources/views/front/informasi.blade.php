@@ -24,8 +24,19 @@
                 <h2>Informasi</h2>
                 <h4>Informasi Magang PDAM</h4>
             </center>
+            <div class="mt-5">
+                <h5> Pendaftaran</h5>
+                -Pilih menu sign up lalu isi semua data simpan email dan password untuk login
+                <hr>
+                <h5>Masuk</h5>
+                -Pilih menu login masukkan email dan password, setelah masuk silahkan pilih menu Akun untuk melengkapi formulir dan upload berkas
+                <hr>
+                <h5>Berkas yang dibutuhkan</h5>
+                -Surat magang dari kampus <br>
+                -Surat pengantar dari kesbangpol <br>
+                -KTM
+            </div>
 
-           
         </div>
     </section>
 

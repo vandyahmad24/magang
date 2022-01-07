@@ -17,6 +17,54 @@
 
         </div>
     </section><!-- End Breadcrumbs -->
+
+    @if (Auth::user()->is_selesai==1)
+    <section class="inner-page">
+        <div class="container">
+            <center>
+                <h4>Magang Anda Sudah Selesai Anda Tidak Bisa Melakukan Absensi</h4>
+            </center>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-5">
+                        <div class="mt-3">
+                            <label for="" class="form-label">Jam</label>
+                            @php
+                                
+                            $datetime = new DateTime( "now", new DateTimeZone( "Asia/Jakarta" ) );
+
+                        // echo $datetime->format( 'Y-m-d H:i:s' );
+
+                            @endphp
+                            <input type="text" name="jam" class="form-control" readonly value="{{$datetime->format( 'H:i:s' )}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-5">
+                        <div class="mt-3">
+                            <label for="" class="form-label">Tanggal/Bulan/Tahun</label>
+                            <input type="date" name="absensi" class="form-control" readonly value="{{$datetime->format( 'Y-m-d' )}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-5">
+                        <div class="mt-3">
+                            <label for="" class="form-label">Status</label>
+                            <input type="text" name="absensi" class="form-control" readonly value="{{$a->status}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @endif
+
     @if ($a==null)
     <section class="inner-page">
         <div class="container">

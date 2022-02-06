@@ -27,7 +27,7 @@ class PrintController extends Controller
     public function cetakHasilMagang($id)
     {
         $user = User::find($id);
-        $pdf = PDF::loadview('surat.sertifikat',compact('user'));
+        $pdf = PDF::loadview('surat.sertifikat',compact('user'))->setPaper('a4', 'landscape');
         return $pdf->stream('sertifikat.pdf');
     }
     public function cetakHasilPengumuman($id)

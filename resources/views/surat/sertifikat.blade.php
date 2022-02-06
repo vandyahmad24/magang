@@ -14,15 +14,10 @@
             font-family: Georgia, serif;
             font-size: 24px;
             text-align: center;
+            border: 20px solid tan;
         }
 
-        .container {
-            border: 20px solid tan;
-            width: 750px;
-            height: 563px;
-            /* display: table-cell; */
-            vertical-align: middle; 
-        }
+      
 
         .logo {
             color: tan;

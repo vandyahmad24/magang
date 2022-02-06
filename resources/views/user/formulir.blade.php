@@ -27,6 +27,15 @@
             </center>
         </div>
         <div class="container">
+            @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             <div class="row">
                 <div class="d-flex justify-content-center">
                 <div class="col-md-4" style="margin-right: 10px">
@@ -47,7 +56,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Tanggal Lahir</label>
-                            <input type="date" name="tanggal_lahir" class="form-control" id="" required>
+                            <input type="date" name="tanggal_lahir" class="form-control" id="" 
+                            required>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Jenis Kelamin</label>

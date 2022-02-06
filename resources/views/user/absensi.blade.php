@@ -124,12 +124,17 @@
                             <label for="" class="form-label">Jam</label>
                             @php
                                 
-                            $datetime = new DateTime( "now", new DateTimeZone( "Asia/Jakarta" ) );
+                                $s = $a->absensi;
+                                $dt = new DateTime($s);
 
-                        // echo $datetime->format( 'Y-m-d H:i:s' );
+                                $date = $dt->format('d-m-Y');
+                                $time = $dt->format('h:i:s A');
+                                // dd($date);
+
+                                // echo $time;
 
                             @endphp
-                            <input type="text" name="jam" class="form-control" readonly value="{{$datetime->format( 'H:i:s' )}}">
+                            <input type="text" name="jam" class="form-control" readonly value="{{$time}}">
                         </div>
                     </div>
                 </div>
@@ -139,7 +144,7 @@
                     <div class="col-md-5">
                         <div class="mt-3">
                             <label for="" class="form-label">Tanggal/Bulan/Tahun</label>
-                            <input type="date" name="absensi" class="form-control" readonly value="{{$datetime->format( 'Y-m-d' )}}">
+                            <input type="text" name="absensi" class="form-control" readonly value="{{$date}}">
                         </div>
                     </div>
                 </div>
@@ -150,6 +155,43 @@
                         <div class="mt-3">
                             <label for="" class="form-label">Status</label>
                             <input type="text" name="absensi" class="form-control" readonly value="{{$a->status}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-5">
+                        <div class="mt-3">
+                            <h5>Rekap Absensi</h5>
+                           <table class="table table-bordered">
+                               <thead>
+                                   <tr>
+                                       <td>No</td>
+                                       <td>Jam</td>
+                                       <td>Tanggal</td>
+                                       <td>Status</td>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   @foreach ($absensi as $ab)
+                                       <tr>
+                                           <td>{{$loop->iteration}}</td>
+                                           @php
+                                            $s = $ab->absensi;
+                                            $dt = new DateTime($s);
+            
+                                            $date = $dt->format('d-m-Y');
+                                            $time = $dt->format('h:i:s A');
+                                            @endphp
+                                           <td>{{$time}}</td>
+                                           <td>{{$date}}</td>
+                                           <td>{{$ab->status}}</td>
+
+                                       </tr>
+                                   @endforeach
+                               </tbody>
+                           </table>
                         </div>
                     </div>
                 </div>

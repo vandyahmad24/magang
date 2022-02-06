@@ -77,10 +77,19 @@ class AdminController extends Controller
     }
     public function absensi()
     {
-        $absensi = Absensi::with('user')->latest()->get();
-        return view('admin.absensi',compact('absensi'));
+        // $absensi = Absensi::with('user')->latest()->get();
+        $peserta = User::where('level','magang')->latest()->get();
+        // dd($peserta);
+        return view('admin.absensi',compact('peserta'));
         // dd($absensi);
     }
+
+    public function absensiDetail($id)
+    {
+        $absensi = Absensi::with('user')->where('user_id',$id)->latest()->get();
+        return view('admin.absensi_detail',compact('absensi'));
+    }
+
     public function rekapPerbulan(Request $request)
     {
         

@@ -72,6 +72,7 @@ Route::get('/daftar_penilaian',[AdminController::class, 'penilaian'])->name('adm
 Route::get('/daftar_penilaian/{id}',[AdminController::class, 'penilaianDetail'])->name('admin.detailpenilaian');
 Route::post('/daftar_penilaian/{id}',[AdminController::class, 'penilaianPost'])->name('admin.penilaian.post');
 Route::get('/absensi',[AdminController::class, 'absensi'])->name('admin.absensi');
+Route::get('/absensi-detail/{id}',[AdminController::class, 'absensiDetail'])->name('admin.absensi.detail');
 // 
 Route::get('/delete-peserta/{id}',[AdminController::class, 'deletePeserta'])->name('admin.delete-perserta');
 Route::get('/admin/rekap-perbulan',[AdminController::class, 'rekapPerbulan'])->name('admin.rekap-perbulan');

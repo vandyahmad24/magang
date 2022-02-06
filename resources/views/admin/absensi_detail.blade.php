@@ -27,17 +27,25 @@
                                             <th>No Peserta</th>
                                             <th>Nama</th>
                                             <th>Universitas</th>
-                                            <th>Aksi</th>
+                                            <th>Jam </th>
+                                            <th>Hari</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($peserta as $u)
+                                        @foreach ($absensi as $u)
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
-                                                <td>{{$u->no_peserta}}</td>
-                                                <td>{{$u->name}}</td>
-                                                <td>{{$u->universitas}}</td>
-                                                <td><a href="{{route('admin.absensi.detail',$u->id)}}" class="btn btn-primary">Detail</a></td>
+                                                <td>{{$u->user->no_peserta}}</td>
+                                                <td>{{$u->user->name}}</td>
+                                                <td>{{$u->user->universitas}}</td>
+                                                @php     
+                                                $datetime = new DateTime( $u->absensi, new DateTimeZone( "Asia/Jakarta" ) );
+                                                @endphp
+                                                
+                                                <td>{{$datetime->format( 'H:i:s' )}}</td>
+                                                <td>{{$datetime->format( 'd-m-Y' )}}</td>
+                                                <td>{{$u->status}}</td>
 
                                             </tr>
                                         @endforeach

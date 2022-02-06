@@ -12,6 +12,7 @@ use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -21,8 +22,36 @@ class UserController extends Controller
     }
     public function formulirPost(Request $request, $id)
     {
+        // validasi umur
+        $validated = $request->validate([
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required|date|before:-15 years',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+            'universitas' => 'required',
+            'fakultasi' => 'required',
+            'alat_kampus' => 'required',
+            'start_magang' => 'required',
+            'selesai_magang' => 'required',
+            'no_telpon' => 'required',
+        ]);
+        
+        // validasi start_magang
+        if (strtotime($request->start_magang) < time()) {
+            // oooh, your book is late!
+            return Redirect::back()->withErrors("magang awal tidak boleh kurang dari hari ini");
+            // dd("sebelum hari ini");
+        }
+
+        if (strtotime($request->selesai_magang) <= strtotime($request->start_magang)) {
+            // oooh, your book is late!
+            return Redirect::back()->withErrors("selesai magang tidak boleh kurang dari mulai magang");
+            // dd("sebelum hari ini");
+        }
+
+
+
         $user = User::find($id);
-        // dd($user);
         $user->universitas=$request->universitas;
         $user->save();
         // dd($request->all());
@@ -46,6 +75,32 @@ class UserController extends Controller
 
     public function formulirPut(Request $request, $id)
     {
+        $validated = $request->validate([
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required|date|before:-15 years',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+            'universitas' => 'required',
+            'fakultasi' => 'required',
+            'alat_kampus' => 'required',
+            'start_magang' => 'required',
+            'selesai_magang' => 'required',
+            'no_telpon' => 'required',
+        ]);
+        
+        // validasi start_magang
+        if (strtotime($request->start_magang) < time()) {
+            // oooh, your book is late!
+            return Redirect::back()->withErrors("magang awal tidak boleh kurang dari hari ini");
+            // dd("sebelum hari ini");
+        }
+
+        if (strtotime($request->selesai_magang) <= strtotime($request->start_magang)) {
+            // oooh, your book is late!
+            return Redirect::back()->withErrors("selesai magang tidak boleh kurang dari mulai magang");
+            // dd("sebelum hari ini");
+        }
+
         $user = User::find($id);
         // dd($user);
         $user->universitas=$request->universitas;
@@ -173,9 +228,10 @@ class UserController extends Controller
                             ->where('user_id',Auth::user()->id)
                             ->first();
                             // dd($a);
-            
+            $absensi = Absensi::where('user_id',Auth::user()->id)->orderBy('created_at','desc')->get();
+            // dd($absensi);
                             // dd($a);
-            return view('user.absensi',compact('a'));
+            return view('user.absensi',compact('a','absensi'));
         }else{
             return view('user.need_validasi');
         }
@@ -193,7 +249,10 @@ class UserController extends Controller
     public function hasilMagang()
     {
         $id = Auth::user()->id;
-        $user = User::where('is_selesai',true)->get();
+        $user = User::where('is_selesai',true)
+                    ->where('id',$id)    
+                    ->get();
+                    // dd($user);
         return view('user.pengumuman',compact('user'));
         
     }

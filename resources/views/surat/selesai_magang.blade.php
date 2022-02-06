@@ -23,109 +23,132 @@
 </head>
 <body>
   {{-- <h4 align="center">PERMINTAAN PERBAIKAN ALAT</h4> --}}
-  <table width="50%">
+  <table width="100%">
     <tr>
-        <td align="left">
-           Hal
-        </td>
-        <td>:</td>
-        <td align="left">
-            Surat Penerimaan Magang
-         </td>
-    </tr>
-    <tr>
-      <td align="left">
-        Lampiran
-     </td>
-     <td>:</td>
-     <td align="left">
-        1 Lembar
-     </td>
-    </tr>
-  </table>
-  <table width="50%" style="margin-top: 20px;">
-    <tr>
-        <td align="left">
-           Yth
+        <td align="center">
+            <h2>SURAT KETERANGAN</h2>
+            <hr width="35%" style="margin-top: -20px">
+            <h5 style="margin-top: -10px">Nomor :</h5>
         </td>
     </tr>
-    <tr>
-      <td align="left">
-       Bpk/Ibu Dekan {{$profile->fakultasi}}
-       <br>
-       {{$user->universitas}}
-     </td>
-   
-    </tr>
+    
   </table>
   <table width="100%" style="margin-top: 30px;">
     <tr>
       <td align="left">
-        Sehubung dengan pelaksanaan magang yang diajukan kepada mahasiswa bapak atas nama :
+        1.
+      </td>
+      <td align="left">
+        Yang Bertanda Tanggan dibawah ini :
       </td>
     </tr>
   </table>
-  
   <br/>
 
   <table width="70%">
       <tr>
         <td align="left">Nama</td>
         <td>:</td>
+        <td>Iwan Kusumahari, SH</td>
+      </tr>
+      <tr>
+        <td align="left">NPP</td>
+        <td>:</td>
+        <td>6908391279</td>
+      </tr>
+      <tr>
+        <td align="left">Pangkat/Gol.</td>
+        <td>:</td>
+        <td>Staf Madya(D/1)</td>
+      </tr>
+      <tr>
+        <td align="left">Jabatan</td>
+        <td>:</td>
+        <td>Kepala Bagian Kepegawaian</td>
+      </tr>
+  </table>
+
+  <table width="100%" style="margin-top: 30px;">
+    <tr>
+      <td align="left">
+        2.
+      </td>
+      <td align="left">
+        Yang Bertanda Tanggan dibawah ini :
+      </td>
+    </tr>
+  </table>
+  <br/>
+
+
+  <table width="70%">
+    <tr>
+      <td align="left">Nama</td>
+        <td>:</td>
         <td>{{$user->name}}</td>
-      </tr>
-      <tr>
-        <td align="left">NIM</td>
-        <td>:</td>
-        <td>{{$user->nim}}</td>
-      </tr>
-      <tr>
-        <td align="left">Fakultas</td>
-        <td>:</td>
-        <td>{{$profile->fakultasi}}</td>
-      </tr>
-      <tr>
-        <td align="left">Universitas</td>
+    </tr>
+    <tr>
+      <td align="left">NIM</td>
+      <td>:</td>
+      <td>{{$user->nim}}</td>
+    </tr>
+    <tr>
+      <td align="left">Program Studi</td>
         <td>:</td>
         <td>{{$user->universitas}}</td>
-      </tr>
+    </tr>
+    <tr>
+      <td align="left"></td>
+      <td></td>
+      <td style="color: white">Kepala Bagian Kepegawaian</td>
+    </tr>
+</table>
+
+  <table width="100%" style="margin-top: 30px;">
+    <tr>
+      <td align="left">
+       Telah melaksanakan Praktek Kerja Lapangan di Perusahaan Umum Daerah Air Minum Tirta Moedal Kota Semarang dari tanggal {{date("d-m-Y", strtotime($user->profile->start_magang))}} sampai dengan {{date("d-m-Y", strtotime($user->profile->selesai_magang))}}.
+      </td>
+    </tr>
+  
   </table>
   <table width="100%" style="margin-top: 30px;">
     <tr>
       <td align="left">
-       Dengan ini dinyatakan telah selesai melakukan magang pada tanggal {{date("d-m-Y", strtotime($user->profile->start_magang))}} - {{date("d-m-Y", strtotime($user->profile->selesai_magang))}} Dengan Nilai {{$user->nilai}}
+        3.
       </td>
-    </tr>
-    <tr>
-        <td>Demikian Surat ini dibuat untuk dipergunakan semestinya</td>
+      <td align="left">
+        Demikian surat keterangan ini dibuat untuk digunakan sebagaimana semestinya
+      </td>
     </tr>
   </table>
   <table width="100%" style="margin-top: 30px;">
     <tr>
-      <td align="right">
-        Kepala PDAM Kota Semarang
+      <td></td>
+      <td align="center">
+        @php
+          $today = date('d M Y');
+        @endphp
+        Semarang, {{$today}}
+        <br>
+        A.n Direksi Perusahaan Daerah Air Minum
+        <br>
+        Tirta Modal Kota Semarang
+        <br>
+        Pjs. Direktur Umum
+        Ub
+        Kepala Bagian Kepegawaian
+        <br>
+        <br>
+        <br>
+        <br>
+        <b><u>Iwan Kusumahari, SH</u></b>
+        <br>
+        Staf. Madya <br>
+        NPP. 6908391279
       </td>
     </tr>
-    <tr>
-        <td>
-            <br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br>
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            Nama
-          </td>
-    </tr>
+   
   </table>
   
 </body>

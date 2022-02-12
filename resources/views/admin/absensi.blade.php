@@ -36,7 +36,7 @@
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$u->no_peserta}}</td>
                                                 <td>{{$u->name}}</td>
-                                                <td>{{$u->universitas}}</td>
+                                                <td>{{$u->universitas ?? ""}}</td>
                                                 <td><a href="{{route('admin.absensi.detail',$u->id)}}" class="btn btn-primary">Detail</a></td>
 
                                             </tr>

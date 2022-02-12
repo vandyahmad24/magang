@@ -57,7 +57,7 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Tanggal Lahir</label>
                             <input type="date" name="tanggal_lahir" class="form-control" id="" 
-                            required>
+                            required max="2007-12-12" value="1995-01-01">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Jenis Kelamin</label>
@@ -87,11 +87,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Waktu Awal Magang</label>
-                            <input type="date" name="start_magang" class="form-control" required>
+                            <input type="date" name="start_magang" id="awal-magang" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Waktu Akhir Magang</label>
-                            <input type="date" name="selesai_magang" class="form-control" required>
+                            <input type="date" name="selesai_magang" id="akhir-magang" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Email</label>
@@ -113,4 +113,19 @@
 
 
 </main>
+@push('addon-script')
+<script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("start_magang")[0].setAttribute('min', today);
+    document.getElementsByName("selesai_magang")[0].setAttribute('min', today);
+    $(document).ready(function(){
+        $("#awal-magang").on("change",function(){
+            var date = $(this).val();
+            document.getElementsByName("selesai_magang")[0].setAttribute('min', date);
+            // alert("halo");
+        });
+    });
+</script>
+@endpush
+
 @endsection

@@ -57,11 +57,7 @@ Route::get('/user-absensi/{status}',[UserController::class, 'absensiStatus'])->n
 Route::get('/hasil-magang',[UserController::class, 'hasilMagang'])->name('user.hasilmagang');
 Route::get('/hasil-magang/cetak/{id}',[PrintController::class, 'cetakHasilMagang'])->name('user.cetakhasilmagang');
 
-
-Route::get('/admin_dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin');
-
+Route::get('/admin_dashboard',[AdminController::class, 'index'])->name('admin');
 Route::get('/daftar_pelamar',[AdminController::class, 'pelamar'])->name('admin.pelamar');
 Route::get('/daftar_pelamar_tolak',[AdminController::class, 'tolak'])->name('admin.tolak');
 Route::get('/daftar_pelamar_konfirmasi',[AdminController::class, 'konfirmasi'])->name('admin.konfirmasi');

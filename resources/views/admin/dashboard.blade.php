@@ -14,9 +14,9 @@
             <div class="row">
                 <div class="col-xl-4 col-md-6">
                     <div class="card bg-primary text-white mb-4">
-                        <div class="card-body">Perlu Verifikasi</div>
+                        <div class="card-body">{{$pengajuan}} Perlu Verifikasi </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
+                            <a class="small text-white stretched-link" href="{{route('admin.pelamar')}}">View Details</a>
                             <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8"
                                     aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"
                                     role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
@@ -31,9 +31,9 @@
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="card bg-warning text-white mb-4">
-                        <div class="card-body">Absensi</div>
+                        <div class="card-body"> {{$absensi}} Absensi</div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View
+                            <a class="small text-white stretched-link" href="{{route('admin.absensi')}}">View
                                 Details</a>
                             <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8"
                                     aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"
@@ -49,9 +49,9 @@
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="card bg-danger text-white mb-4">
-                        <div class="card-body">Penilaian</div>
+                        <div class="card-body">{{$penilaian}} Penilaian</div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
+                            <a class="small text-white stretched-link" href="{{route('admin.penilaian')}}">View Details</a>
                             <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8"
                                     aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"
                                     role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"

@@ -11,6 +11,13 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        $pengajuan = User::where('level','magang')->where('status_magang','pengajuan')->latest()->count();
+        $penilaian = User::where('level','magang')->where('status_magang','setuju')->where('nilai',0)->latest()->count();
+        $absensi = Absensi::count();
+        return view('admin.dashboard',compact('pengajuan','penilaian','absensi'));
+    }
     public function pelamar()
     {
         $user = User::where('level','magang')->where('status_magang','pengajuan')->latest()->get();

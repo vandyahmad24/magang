@@ -15,8 +15,8 @@ class AdminController extends Controller
     {
         $pengajuan = User::where('level','magang')->where('status_magang','pengajuan')->latest()->count();
         $penilaian = User::where('level','magang')->where('status_magang','setuju')->where('nilai',0)->latest()->count();
-        $absensi = Absensi::count();
-        return view('admin.dashboard',compact('pengajuan','penilaian','absensi'));
+        $konfirmasi = User::where('level','magang')->where('status_magang','setuju')->where('is_confirmation','0')->count();
+        return view('admin.dashboard',compact('pengajuan','penilaian','konfirmasi'));
     }
     public function pelamar()
     {

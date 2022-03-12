@@ -31,9 +31,9 @@
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="card bg-warning text-white mb-4">
-                        <div class="card-body"> {{$absensi}} Absensi</div>
+                        <div class="card-body"> {{$konfirmasi}} Konfirmasi</div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="{{route('admin.absensi')}}">View
+                            <a class="small text-white stretched-link" href="{{route('admin.konfirmasi')}}">View
                                 Details</a>
                             <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8"
                                     aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"

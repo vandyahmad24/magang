@@ -107,8 +107,7 @@
   <table width="100%" style="margin-top: 30px;">
     <tr>
       <td align="left">
-       Telah diterima magang pada tanggal <b>{{date("d-m-Y", strtotime($profile->start_magang))}}</b> Sampai <b>{{date("d-m-Y", strtotime($profile->selesai_magang))}}
-
+        Telah diterima Praktek Kerja Lapangan di Perusahaan Umum Daerah Air Minum Tirta Moedal Kota Semarang dari tanggal {{date("d-m-Y", strtotime($profile->start_magang))}}</b> Sampai dengan <b>{{date("d-m-Y", strtotime($profile->selesai_magang))}}
       </td>
     </tr>
   

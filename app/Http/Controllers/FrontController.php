@@ -9,7 +9,7 @@ class FrontController extends Controller
 {
     public function pendaftar()
     {
-        $user = User::where('level','magang')->where('status_magang','setuju')->with('document')->latest()->get();
+        $user = User::where('level','magang')->where('status_magang','setuju')->where('is_selesai',false)->with('document')->latest()->get();
         // dd($user);
        return view('front.pendaftar',compact('user'));
     }

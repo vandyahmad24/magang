@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
@@ -32,6 +33,7 @@ Route::get('/pendaftar',[FrontController::class, 'pendaftar'])->name('pendaftar'
 Route::get('/pengumuman',[FrontController::class, 'pengumuman'])->name('pengumuman');
 Route::get('/informasi',[FrontController::class, 'informasi'])->name('informasi');
 Auth::routes();
+Route::get('register/siswa', [RegisterController::class, 'registerSiswa'])->name('register-siswa');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/formulir',[UserController::class, 'formulir'])->name('user.formulir');

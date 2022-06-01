@@ -22,7 +22,7 @@
         <div class="container">
             <center>
                 <h2>Prosedur</h2>
-                <h3>Proses Validasi pendaftaran magang</h3>
+                <h3>Proses Verifikasi pendaftaran magang</h3>
             </center>
         </div>
 
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <br>
-                                    <h3>PROSES VERIVIKASI DATA</h3>
+                                    <h3>PROSES VERIFIKASI DATA</h3>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <br>
-                                    <h3>PROSES VERIVIKASI DATA</h3>
+                                    <h3>PROSES VERIFIKASI DATA</h3>
                                 </div>
                             </div>
                         </div>

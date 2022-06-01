@@ -170,7 +170,7 @@
                         <h2 class="text-center">Register</h2>
                         <h5>Register Untuk Ke Halaman User</h5>
                         <div class="form-group mb-3">
-                            <input type="text" class="form-control"  name="nim" placeholder="NIM" required="required">
+                            <input type="text" class="form-control"  name="nim" placeholder="NIS" required="required">
                             @error('nim')
                             <div class="alert alert-danger" role="alert">
                             {{ $message }}
@@ -186,7 +186,7 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <input type="text" class="form-control"  name="universitas" placeholder="Universitas" required="required">
+                            <input type="text" class="form-control"  name="universitas" placeholder="Nama Sekolah" required="required">
                             @error('universitas')
                             <div class="alert alert-danger" role="alert">
                             {{ $message }}
@@ -214,7 +214,7 @@
                             <input type="password" class="form-control" name="password_confirmation" placeholder="Password Konfirmasi" required="required">
                         </div>
 
-                        <input type="hidden" name="is_siswa" value="0">
+                        <input type="hidden" name="is_siswa" value="1">
                         <div class="form-group mb-3">
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
                         </div>

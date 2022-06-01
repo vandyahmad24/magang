@@ -43,7 +43,13 @@
                     <form method="post" action="{{route('user.formulir.post',Auth::user()->id)}}">
                         @csrf
                         <div class="mb-3">
-                          <label for="" class="form-label">NIM</label>
+                          <label for="" class="form-label">
+                            @if (Auth::user()->is_siswa==1)
+                            NIS
+                            @else
+                            NIM
+                            @endif
+                          </label>
                           <input type="text" class="form-control" id="" readonly value="{{Auth::user()->nim}}" required>
                         </div>
                         <div class="mb-3">
@@ -74,15 +80,33 @@
                 <div class="col-md-4">
                     <h5><br></h5>
                         <div class="mb-3">
-                            <label for="" class="form-label">Universitas</label>
+                            <label for="" class="form-label">
+                                @if (Auth::user()->is_siswa==1)
+                                Universitas
+                                @else
+                                Sekolah
+                                @endif
+                                </label>
                             <input type="text" name="universitas" class="form-control" value="{{Auth::user()->universitas}}" required>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Fakultas/Prodi</label>
+                            <label for="" class="form-label">
+                                @if (Auth::user()->is_siswa==1)
+                                Jurusan
+                                @else
+                                Fakultas/Prodi
+                                @endif
+                                </label>
                             <input type="text" name="fakultasi" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Alamat Kampus</label>
+                            <label for="" class="form-label">
+                                @if (Auth::user()->is_siswa==1)
+                                Alamat Sekolah
+                                @else
+                                Alamat Kampus
+                                @endif
+                                </label>
                             <input type="text" name="alat_kampus" class="form-control" required>
                         </div>
                         <div class="mb-3">

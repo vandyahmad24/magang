@@ -70,6 +70,7 @@
                     <li><a class="nav-link " href="{{route('user.pengumuman-after')}}">Surat Balasan</a></li>
                     <li><a class="nav-link" href="{{route('user.absensi')}}">Absensi</a></li>
                     <li><a class="nav-link" href="{{route('user.hasilmagang')}}">Hasil Magang</a></li>
+                    <li><a class="nav-link" href="{{route('change-password')}}">Ganti Password</a></li>
                     <li>
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

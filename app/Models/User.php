@@ -26,7 +26,8 @@ class User extends Authenticatable
         'password',
         'status_magang',
         'no_peserta',
-        'is_siswa'
+        'is_siswa',
+        'alasan_tolak'
     ];
 
     /**

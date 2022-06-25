@@ -74,7 +74,7 @@
         2.
       </td>
       <td align="left">
-        Yang Bertanda Tanggan dibawah ini :
+        Dengan ini menerangkan bahwa :
       </td>
     </tr>
   </table>

@@ -138,4 +138,19 @@ class AdminController extends Controller
         // dd($profile);
         
     }
+    public function AlasanTolak($id)
+    {
+        $user = User::find($id);
+        return view('admin.alasan_tolak', compact('user'));
+    }
+    public function AlasanTolakPost(Request $request)
+    {
+        $user =User::find($request->id);
+        $user->status_magang = "tolak";
+        $user->alasan_tolak = $request->alasan_tolak;
+        $user->save();
+        return redirect('/daftar_pelamar');
+    }
+
+    
 }

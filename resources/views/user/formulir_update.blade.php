@@ -108,7 +108,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Email</label>
-                            <input type="text" name="fakultasi" class="form-control" value="{{Auth::user()->email}}"
+                            <input type="text" name="email" class="form-control" value="{{Auth::user()->email}}"
                                 readonly required>
                         </div>
                         <div class="mb-3">

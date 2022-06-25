@@ -107,6 +107,9 @@
                             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                         </div>
                         <div class="form-group mb-3">
+                           <a href="{{route('lupa-password')}}" >Lupa Password?</a>
+                        </div>
+                        <div class="form-group mb-3">
                             <button type="submit" class="btn btn-primary btn-block">Log in</button>
                         </div>
                        

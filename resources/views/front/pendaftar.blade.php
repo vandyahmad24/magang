@@ -21,8 +21,7 @@
     <section class="inner-page">
         <div class="container">
             <center>
-                <h2>Pendaftar</h2>
-                <h4>Daftar Peserta Magang PDAM</h4>
+                <h2>Daftar Peserta Magang PDAM</h2>
             </center>
 
             <table class="table table-bordered">

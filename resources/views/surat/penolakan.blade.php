@@ -96,6 +96,7 @@
     <tr>
       <td align="left">
        Dengan ini menyampaikan permohonan maaf bahwa saat ini kami belum bisa menerima mahasiswa tersebut sebagai peserta magang dikantor kami 
+     <br>  NB Alasan ditolak: {{$user->alasan_tolak}}
       </td>
     </tr>
     <tr>

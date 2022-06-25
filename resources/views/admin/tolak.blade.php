@@ -30,6 +30,7 @@
                                             <th>NIM</th>
                                             <th>Tanggal Daftar</th>
                                             <th>Status</th>
+                                            <th>Alasan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -43,6 +44,7 @@
                                                 <td>{{$u->nim}}</td>
                                                 <td>{{$u->created_at}}</td>
                                                 <td>{{$u->status_magang}}</td>
+                                                <td>{{$u->alasan_tolak}}</td>
                                                 <td>
                                                     <a href="{{route('admin.detail_pelamar',$u->id)}}" class="btn btn-primary">Detail</a>
                                                 </td>

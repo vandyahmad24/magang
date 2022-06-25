@@ -133,7 +133,7 @@
                                 <div class="row">
                                     <a href="{{route('admin.change.pelamar',['id'=>$user->id,'status'=>'setuju'])}}" class="btn btn-success mb-3">Terima</a>
                                    @if ($user->status_magang !="tolak")
-                                   <a href="{{route('admin.change.pelamar',['id'=>$user->id,'status'=>'tolak'])}}" class="btn btn-danger">Tolak</a>
+                                   <a href="{{route('admin.alasan_tolak',['id'=>$user->id])}}" class="btn btn-danger">Tolak</a>
                                 </div>
                                    @endif   
                                     

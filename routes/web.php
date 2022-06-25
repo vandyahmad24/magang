@@ -29,9 +29,15 @@ Route::get('/', function () {
 Route::get('/profil', function () {
     return view('front.profil');
 })->name('profil');
+
+Route::get('/lupa-password', function () {
+    return view('front.lupa-password');
+})->name('lupa-password');
+
 Route::get('/pendaftar',[FrontController::class, 'pendaftar'])->name('pendaftar');
 Route::get('/pengumuman',[FrontController::class, 'pengumuman'])->name('pengumuman');
 Route::get('/informasi',[FrontController::class, 'informasi'])->name('informasi');
+Route::post('/lupa-password',[FrontController::class, 'forgetPassword'])->name('forget-password');
 Auth::routes();
 Route::get('register/siswa', [RegisterController::class, 'registerSiswa'])->name('register-siswa');
 
@@ -42,6 +48,10 @@ Route::get('/formulir/{id}',[UserController::class, 'formulirUpdate'])->name('us
 Route::put('/formulir/{id}',[UserController::class, 'formulirPut'])->name('user.formulir.put');
 Route::get('/cetak/pendaftaran',[PrintController::class, 'pendaftaran'])->name('cetak.pendaftaran');
 Route::get('/pengumuman-after',[UserController::class, 'pengumuman'])->name('user.pengumuman-after');
+Route::get('/change-password', function () {
+    return view('user.change_password');
+})->name('change-password');
+Route::post('/change-password',[UserController::class, 'updatePassword'])->name('change-password.post');
 
 Route::get('/berkas',[UserController::class, 'berkas'])->name('user.berkas');
 Route::post('/berkas',[UserController::class, 'berkasPost'])->name('user.berkas.post');
@@ -79,3 +89,5 @@ Route::get('/cetak/rekap-perbulan/{tanggal_awal}/{tanggal_akhir}',[AdminControll
 
 Route::get('/admin/edit-peserta/{id}',[AdminController::class, 'editPeserta'])->name('admin.edit-perserta');
 
+Route::get('/alasan-tolak/{id}',[AdminController::class, 'AlasanTolak'])->name('admin.alasan_tolak');
+Route::post('/alasan-tolak',[AdminController::class, 'AlasanTolakPost'])->name('admin.alasan_tolak_post');
